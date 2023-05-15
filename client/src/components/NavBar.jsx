@@ -27,7 +27,9 @@ const NavBar = () => {
                 <Tabs to='/about'>AboutUs</Tabs>
                 <Tabs to='/donate'>Donate</Tabs>
                 <Stack spacing={2} direction='row'>
-                <Button  variant="outlined">Sign Up</Button>
+                <Button  variant="outlined" onClick={()=>{
+                    nav('/SLanding');
+                }}>Sign Up</Button>
                 <Button  variant="outlined" onClick={()=> {
                     nav('/login');
 

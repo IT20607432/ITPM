@@ -15,3 +15,7 @@ export const addContact = async (request,response) => {
         
     }
 }
+
+
+// request comes from the frontend to backend
+//response comes from backend to frontend

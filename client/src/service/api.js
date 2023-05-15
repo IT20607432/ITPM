@@ -12,3 +12,29 @@ export const addContact = async (data) => {
     }
 
 }
+
+
+export const regPatient = async(data) => {
+  try {
+    return await axios.post(`${URL}/signup`,data)
+    
+  } catch (error) {
+
+    console.log('Error While Calling Register Patient API',error)
+    
+  }
+}
+
+export const logPatient = async(data) => {
+  try {
+    return await axios.post(`${URL}/login`,data);
+
+  } catch (error) {
+
+    console.log('Error While Calling Login API',error)
+    
+  }
+}
+
+
+
