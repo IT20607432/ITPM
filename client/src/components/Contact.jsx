@@ -2,6 +2,7 @@ import {  Typography,FormControl, InputLabel, FormGroup, Input, Button,styled } 
 import '../styling/contact.css';
 import { useState } from "react";
 import { addContact } from "../service/api";
+import NavBar from "./NavBar";
 
 const Container = styled(FormGroup)`
     width: 45%;
@@ -40,9 +41,10 @@ const Contact = ()=> {
 
     return(
 
-    
-            
+    <div>
+            <NavBar/>
         <Container>
+            
             <Typography variant="h5">Contact Us</Typography>
             <FormControl>
                 <InputLabel required >First Name</InputLabel>
@@ -73,6 +75,7 @@ const Contact = ()=> {
                 <Button variant="contained" onClick={() => AddcontactUs()}>Submit</Button>
             </FormControl>
         </Container>
+        </div>
     
          
        

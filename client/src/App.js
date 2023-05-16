@@ -12,6 +12,9 @@ import Donate from './components/donate';
 import { BrowserRouter, Routes, Route,Navigate } from 'react-router-dom';
 import Profile from './components/patientProfile';
 import Charity from './components/Charity';
+import DoctorSign from './components/DoctorSignup';
+import DLogin from './components/DoctorLoging';
+import DDashboard from './components/DoctorDashboard';
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
       <Route path='/pDashboard' element={<PDashboard/>}/>
       <Route path='/Profile' element={<Profile/>}/>
       <Route path='/charity' element={<Charity/>}/>
+      <Route path='/DSignup' element={<DoctorSign/>}/>
+      <Route path='/Dlogin' element={<DLogin/>}/>
+      <Route path='/dDashboard' element={<DDashboard/>}/>
       
     </Routes>
     </BrowserRouter>

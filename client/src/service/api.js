@@ -36,5 +36,26 @@ export const logPatient = async(data) => {
   }
 }
 
+export const regDoctor = async(data) => {
+  try {
+    return await axios.post(`${URL}/DSignup`,data);
+
+  } catch (error) {
+    console.log("Error While calling Register Doctor API");
+    
+  }
+}
+
+export const logDoctor = async(data) => {
+  try {
+    return await axios.post(`${URL}/Dlogin`,data);
+
+  } catch (error) {
+
+    console.log('Error While Calling Login API',error)
+    
+  }
+}
+
 
 

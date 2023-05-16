@@ -32,7 +32,7 @@ const SignUpLanding = () => {
         Sign Up As a Patient
       </Btn>
 
-      <Btn variant="outlined" size="large">
+      <Btn variant="outlined" size="large" onClick={()=> {nav('/DSignup')}}>
         Sign Up As a Doctor
       </Btn>
 

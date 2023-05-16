@@ -2,9 +2,7 @@ import { Box, Button, TextField,Typography,styled } from "@mui/material";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import {logPatient} from "../service/api";
-
-
+import { logDoctor } from "../service/api";
 
 
 const Component = styled(Box)`
@@ -45,21 +43,20 @@ const Text = styled(Typography)`
     font-size: 12px;
 `
 
-const PatientLogin = () => {
-
+const DLogin = () => {
     const [username, setUsername] = useState("");
     const [password,setPassword] = useState("");
     const [loggedInUser,setLoggedInUser] = useState(null);
     const [error,setError] = useState();
-    
+
     const nav = useNavigate();
 
     const handleLogin = async ()=> {
         try {
-            const response = await logPatient({username,password});
+            const response = await logDoctor({username,password});
             if(response.status === 200){
                 setLoggedInUser(response.data);
-                nav('/pDashboard');
+                nav('/dDashboard');
             }else{
                 setError("Invalid Username and Password");
             }
@@ -73,37 +70,39 @@ const PatientLogin = () => {
 
     return(
         <div className="main">
-            <NavBar/>
-        <Component>
-            <Heading>
-                <h2>Login</h2>
-            </Heading>
+        <NavBar/>
+    <Component>
+        <Heading>
+            <h2>Login</h2>
+        </Heading>
+    
+        <Wrapper>
+        <TextField 
+            variant="standard"
+            label="Enter username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
         
-            <Wrapper>
-            <TextField 
-                variant="standard"
-                label="Enter username"
-                value={username}
-                onChange={(e)=> setUsername(e.target.value)}
-                  />
-            <TextField 
-                variant="standard"
-                label="Enter Password"
-                value={password}
-                onChange={(e)=> setPassword(e.target.value)}
-                 />
-            <LoginButton variant="contained" onClick={handleLogin}>Login</LoginButton>
-            <Text style={{textAlign : 'center'}}>Not a member ? </Text>
-            <Button onClick={()=> {nav('/SLanding')}}>Create an Account</Button>
+        
+              />
+        <TextField 
+            variant="standard"
+            label="Enter Password"
+            value={password}
+            onChange={(e)=> setPassword(e.target.value)}
+             />
+        <LoginButton variant="contained" onClick={handleLogin} >Login</LoginButton>
+        <Text style={{textAlign : 'center'}}>Not a member ? </Text>
+        <Button onClick={()=> {nav('/SLanding')}}>Create an Account</Button>
 
-           
-            
-            </Wrapper>
+       
         
-        </Component>
-        </div>
+        </Wrapper>
+    
+    </Component>
+    </div>
+
     )
 }
 
-
-export default PatientLogin;
+export default  DLogin;
